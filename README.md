@@ -30,7 +30,7 @@ aquaclaw onboard --install-daemon
 ## Install from source
 
 ```bash
-git clone https://github.com/aquaclaw/aquaclaw.git
+git clone https://github.com/rocean007/aquaclaw.git
 cd aquaclaw
 
 pnpm install

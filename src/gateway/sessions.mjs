@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { homedir } from 'os';
-import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'fs';
+import { existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync } from 'fs';
 import { log } from '../utils/log.mjs';
 
 const SESSIONS_DIR = join(homedir(), '.aquaclaw', 'sessions');
@@ -153,7 +153,6 @@ export class SessionManager {
   _loadPersisted() {
     if (!existsSync(SESSIONS_DIR)) return;
     try {
-      const { readdirSync } = require('fs');
       for (const file of readdirSync(SESSIONS_DIR)) {
         if (!file.endsWith('.json')) continue;
         try {
