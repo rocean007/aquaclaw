@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  aquaclaw:
+    build: .
+    image: aquaclaw/aquaclaw:latest
+    container_name: aquaclaw
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:18790:18790"
+    volumes:
+      - ~/.aquaclaw:/config
+      - ~/.aquaclaw/workspace:/workspace
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:18790/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: Ollama for local models
+  ollama:
+    image: ollama/ollama:latest
+    container_name: aquaclaw-ollama
+    restart: unless-stopped
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "127.0.0.1:11434:11434"
+    profiles:
+      - ollama
+
+volumes:
+  ollama_data:

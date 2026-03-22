@@ -1,0 +1,65 @@
+{
+  "name": "aquaclaw",
+  "version": "1.0.0",
+  "description": "AquaClaw — Your personal AI agent. Any OS. Any platform. The shark way. 🦈",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.16.0"
+  },
+  "bin": {
+    "aquaclaw": "./packages/cli/bin/aquaclaw.mjs"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node --watch src/gateway/index.mjs",
+    "gateway": "node src/gateway/index.mjs",
+    "gateway:watch": "node --watch src/gateway/index.mjs",
+    "aquaclaw": "node packages/cli/bin/aquaclaw.mjs",
+    "ui:dev": "node src/ui/server.mjs",
+    "test": "node --test test/**/*.test.mjs",
+    "lint": "node scripts/lint.mjs",
+    "onboard": "node packages/cli/bin/aquaclaw.mjs onboard"
+  },
+  "dependencies": {
+    "ws": "^8.18.0",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2",
+    "commander": "^12.1.0",
+    "inquirer": "^10.2.2",
+    "chalk": "^5.3.0",
+    "ora": "^8.1.1",
+    "conf": "^13.0.0",
+    "chokidar": "^4.0.3",
+    "cron": "^3.2.1",
+    "uuid": "^10.0.0",
+    "dotenv": "^16.4.7",
+    "zod": "^3.23.8",
+    "marked": "^12.0.0",
+    "eventsource": "^2.0.2",
+    "node-whisper": "^0.0.11",
+    "openai": "^4.77.0",
+    "@anthropic-ai/sdk": "^0.37.0",
+    "telegraf": "^4.16.3",
+    "discord.js": "^14.16.3",
+    "@slack/bolt": "^3.22.0",
+    "baileys": "^6.7.18",
+    "matrix-js-sdk": "^34.11.0",
+    "node-pty": "^1.0.0",
+    "systeminformation": "^5.23.15",
+    "screenshot-desktop": "^1.15.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "@types/node": "^22.10.7",
+    "@types/ws": "^8.5.13",
+    "@types/express": "^5.0.0"
+  },
+  "keywords": ["ai", "assistant", "agent", "personal", "local", "voice", "aquaclaw"],
+  "license": "MIT",
+  "author": "AquaClaw Contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aquaclaw/aquaclaw"
+  }
+}

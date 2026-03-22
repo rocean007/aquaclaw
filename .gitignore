@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+*.log
+.aquaclaw/credentials/
+.aquaclaw/sessions/
+.aquaclaw/memory.json
+pnpm-lock.yaml
+*.local
